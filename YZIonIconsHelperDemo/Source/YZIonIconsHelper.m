@@ -14,9 +14,10 @@
 
 #import "YZIonIconsHelper.h"
 
-NSString *const kYZDefaultIcon = @"kYZDefaultIcon";
-NSString *const kYZIconColor = @"kYZIconColor";
-NSString *const kYZIconSize = @"kYZIconSize";
+NSString *const yz_default_icon_settings = @"yz_default_icon_settings";
+NSString *const yz_icon_normal_color = @"yz_icon_normal_color";
+NSString *const yz_icon_selected_color = @"yz_icon_normal_color";
+NSString *const yz_icon_size = @"yz_icon_normal_color";
 
 @interface YZIonIconsHelper ()
 
@@ -24,11 +25,43 @@ NSString *const kYZIconSize = @"kYZIconSize";
 
 @implementation YZIonIconsHelper
 
-- (UIImage*)imageOptimizedFor:(class)class{
+- (void)setUp{
 	
-	if () {
-		
+	
+	
+}
+
+- (UIImage*)imageOptimizedFor:(Class)aClass{
+	
+	return [self imageOptimizedFor:aClass colorKey:yz_icon_normal_color];
+	
+}
+
+- (UIImage*)imageOptimizedFor:(Class)aClass colorKey:(NSString*)colorKey{
+	
+	UIImage *image;
+	UIColor *color;
+	NSNumber *size;
+	
+	if (!(color = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]] objectForKey:colorKey])) {
+		if (!(color = [[self.settings objectForKey:yz_default_icon_settings] objectForKey:colorKey])) {
+			color = [UIColor redColor];
+		}
 	}
+	
+	if (!(size = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]] objectForKey:yz_icon_size])) {
+		if (!(size = [[self.settings objectForKey:yz_default_icon_settings] objectForKey:yz_icon_size])) {
+			size = @(100);
+		}
+	}
+	
+	return image;
+	
+}
+
++ (NSString*)iconSettingsKeyForClass:(Class)aClass{
+	
+	return NSStringFromClass(aClass);
 	
 }
 

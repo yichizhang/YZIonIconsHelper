@@ -12,6 +12,14 @@
  
  */
 
+FOUNDATION_EXPORT NSString *const kYZDefaultIcon;
+FOUNDATION_EXPORT NSString *const kYZIconColor;
+FOUNDATION_EXPORT NSString *const kYZIconSize;
+
 @interface YZIonIconsHelper : NSObject
+
+@property (nonatomic, strong) NSDictionary *defaultSettings;
+
+- (UIImage*)imageOptimizedFor:(class)class;
 
 @end

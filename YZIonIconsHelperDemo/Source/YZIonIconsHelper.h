@@ -12,24 +12,21 @@
  
  */
 
-#import "YZIonIconsHelper.h"
+@import Foundation;
+@import UIKit;
 
-NSString *const kYZDefaultIcon = @"kYZDefaultIcon";
-NSString *const kYZIconColor = @"kYZIconColor";
-NSString *const kYZIconSize = @"kYZIconSize";
+FOUNDATION_EXPORT NSString *const yz_default_icon_settings;
+FOUNDATION_EXPORT NSString *const yz_icon_normal_color;
+FOUNDATION_EXPORT NSString *const yz_icon_selected_color;
+FOUNDATION_EXPORT NSString *const yz_icon_size;
 
-@interface YZIonIconsHelper ()
+@interface YZIonIconsHelper : NSObject
 
-@end
+@property (nonatomic, strong) NSDictionary *settings;
 
-@implementation YZIonIconsHelper
+- (UIImage*)imageOptimizedFor:(Class)aClass;
+- (UIImage*)imageOptimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
 
-- (UIImage*)imageOptimizedFor:(class)class{
-	
-	if () {
-		
-	}
-	
-}
++ (NSString*)iconSettingsKeyForClass:(Class)aClass;
 
 @end
