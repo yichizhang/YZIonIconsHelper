@@ -14,7 +14,10 @@
 		12A6B9141A3143B0004BDA2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12A6B9131A3143B0004BDA2D /* Images.xcassets */; };
 		12A6B9171A3143B0004BDA2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A6B9151A3143B0004BDA2D /* LaunchScreen.xib */; };
 		12A6B9231A3143B0004BDA2D /* YZIonIconsHelperDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6B9221A3143B0004BDA2D /* YZIonIconsHelperDemoTests.m */; };
-		12A6B92F1A3143C0004BDA2D /* YZIonIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6B92E1A3143C0004BDA2D /* YZIonIconsHelper.m */; };
+		12A6B93F1A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6B9391A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.m */; };
+		12A6B9401A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6B93B1A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.m */; };
+		12A6B9411A31A378004BDA2D /* YZIonIconsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A6B93D1A31A378004BDA2D /* YZIonIconsHelper.m */; };
+		24E361408F619E8447321D2F /* libPods-YZIonIconsHelperDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 011D3BB99016C494122CE867 /* libPods-YZIonIconsHelperDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011D3BB99016C494122CE867 /* libPods-YZIonIconsHelperDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YZIonIconsHelperDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A6B9031A3143B0004BDA2D /* YZIonIconsHelperDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YZIonIconsHelperDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A6B9071A3143B0004BDA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12A6B9081A3143B0004BDA2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +45,15 @@
 		12A6B91C1A3143B0004BDA2D /* YZIonIconsHelperDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YZIonIconsHelperDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12A6B9211A3143B0004BDA2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12A6B9221A3143B0004BDA2D /* YZIonIconsHelperDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YZIonIconsHelperDemoTests.m; sourceTree = "<group>"; };
-		12A6B92D1A3143C0004BDA2D /* YZIonIconsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZIonIconsHelper.h; sourceTree = "<group>"; };
-		12A6B92E1A3143C0004BDA2D /* YZIonIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZIonIconsHelper.m; sourceTree = "<group>"; };
+		12A6B9381A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+YZIonIconsHelper.h"; path = "../../Source/UIBarButtonItem+YZIonIconsHelper.h"; sourceTree = "<group>"; };
+		12A6B9391A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+YZIonIconsHelper.m"; path = "../../Source/UIBarButtonItem+YZIonIconsHelper.m"; sourceTree = "<group>"; };
+		12A6B93A1A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarItem+YZIonIconsHelper.h"; path = "../../Source/UITabBarItem+YZIonIconsHelper.h"; sourceTree = "<group>"; };
+		12A6B93B1A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarItem+YZIonIconsHelper.m"; path = "../../Source/UITabBarItem+YZIonIconsHelper.m"; sourceTree = "<group>"; };
+		12A6B93C1A31A378004BDA2D /* YZIonIconsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZIonIconsHelper.h; path = ../../Source/YZIonIconsHelper.h; sourceTree = "<group>"; };
+		12A6B93D1A31A378004BDA2D /* YZIonIconsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YZIonIconsHelper.m; path = ../../Source/YZIonIconsHelper.m; sourceTree = "<group>"; };
+		12A6B93E1A31A378004BDA2D /* YZIonIconsHelperImportAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YZIonIconsHelperImportAll.h; path = ../../Source/YZIonIconsHelperImportAll.h; sourceTree = "<group>"; };
+		459F3D1B96B8D9D98A8D5280 /* Pods-YZIonIconsHelperDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZIonIconsHelperDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YZIonIconsHelperDemo/Pods-YZIonIconsHelperDemo.release.xcconfig"; sourceTree = "<group>"; };
+		D00FAFC9E4BC38B7DB8776DA /* Pods-YZIonIconsHelperDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YZIonIconsHelperDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YZIonIconsHelperDemo/Pods-YZIonIconsHelperDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E361408F619E8447321D2F /* libPods-YZIonIconsHelperDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +82,8 @@
 				12A6B9051A3143B0004BDA2D /* YZIonIconsHelperDemo */,
 				12A6B91F1A3143B0004BDA2D /* YZIonIconsHelperDemoTests */,
 				12A6B9041A3143B0004BDA2D /* Products */,
+				F9B39CBB847793290ED63167 /* Pods */,
+				D00DDB1FDDA60057A13E1E0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,10 +140,32 @@
 		12A6B92C1A3143C0004BDA2D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				12A6B92D1A3143C0004BDA2D /* YZIonIconsHelper.h */,
-				12A6B92E1A3143C0004BDA2D /* YZIonIconsHelper.m */,
+				12A6B9381A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.h */,
+				12A6B9391A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.m */,
+				12A6B93A1A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.h */,
+				12A6B93B1A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.m */,
+				12A6B93C1A31A378004BDA2D /* YZIonIconsHelper.h */,
+				12A6B93D1A31A378004BDA2D /* YZIonIconsHelper.m */,
+				12A6B93E1A31A378004BDA2D /* YZIonIconsHelperImportAll.h */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		D00DDB1FDDA60057A13E1E0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				011D3BB99016C494122CE867 /* libPods-YZIonIconsHelperDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F9B39CBB847793290ED63167 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D00FAFC9E4BC38B7DB8776DA /* Pods-YZIonIconsHelperDemo.debug.xcconfig */,
+				459F3D1B96B8D9D98A8D5280 /* Pods-YZIonIconsHelperDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12A6B9261A3143B0004BDA2D /* Build configuration list for PBXNativeTarget "YZIonIconsHelperDemo" */;
 			buildPhases = (
+				1CCF49A3A29908B047E63FC2 /* Check Pods Manifest.lock */,
 				12A6B8FF1A3143B0004BDA2D /* Sources */,
 				12A6B9001A3143B0004BDA2D /* Frameworks */,
 				12A6B9011A3143B0004BDA2D /* Resources */,
+				55FE38119613AF117CC67007 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,6 +265,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CCF49A3A29908B047E63FC2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55FE38119613AF117CC67007 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YZIonIconsHelperDemo/Pods-YZIonIconsHelperDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		12A6B8FF1A3143B0004BDA2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -234,8 +305,10 @@
 			files = (
 				12A6B90F1A3143B0004BDA2D /* ViewController.m in Sources */,
 				12A6B90C1A3143B0004BDA2D /* AppDelegate.m in Sources */,
-				12A6B92F1A3143C0004BDA2D /* YZIonIconsHelper.m in Sources */,
+				12A6B9411A31A378004BDA2D /* YZIonIconsHelper.m in Sources */,
 				12A6B9091A3143B0004BDA2D /* main.m in Sources */,
+				12A6B9401A31A378004BDA2D /* UITabBarItem+YZIonIconsHelper.m in Sources */,
+				12A6B93F1A31A378004BDA2D /* UIBarButtonItem+YZIonIconsHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +428,7 @@
 		};
 		12A6B9271A3143B0004BDA2D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D00FAFC9E4BC38B7DB8776DA /* Pods-YZIonIconsHelperDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YZIonIconsHelperDemo/Info.plist;
@@ -365,6 +439,7 @@
 		};
 		12A6B9281A3143B0004BDA2D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 459F3D1B96B8D9D98A8D5280 /* Pods-YZIonIconsHelperDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YZIonIconsHelperDemo/Info.plist;
@@ -426,6 +501,7 @@
 				12A6B9281A3143B0004BDA2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12A6B9291A3143B0004BDA2D /* Build configuration list for PBXNativeTarget "YZIonIconsHelperDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +510,7 @@
 				12A6B92B1A3143B0004BDA2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

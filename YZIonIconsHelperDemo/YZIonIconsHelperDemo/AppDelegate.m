@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+
+#import "YZIonIconsHelperImportAll.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,50 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	
+	ViewController *vc1 = [ViewController new];
+	ViewController *vc2 = [ViewController new];
+	ViewController *vc3 = [ViewController new];
+	
+	vc1.tabBarItem =
+	[UITabBarItem
+	 yz_tabBarItemWithTitle:@"A"
+	 ionIcon:icon_ios7_box
+	 ];
+	vc1.navigationItem.leftBarButtonItem =
+	[UIBarButtonItem
+	 yz_barButtonItemWithIonIcon:icon_ios7_gear
+	 target:nil
+	 action:nil
+	 ];
+	
+	vc2.tabBarItem =
+	[UITabBarItem
+	 yz_tabBarItemWithTitle:@"B"
+	 ionIcon:icon_ios7_cog
+	 ];
+	
+	vc3.tabBarItem =
+	[UITabBarItem
+	 yz_tabBarItemWithTitle:@"C"
+	 ionIcon:icon_ios7_mic
+	 ];
+	
+	UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+	UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+	UINavigationController *navCon3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+	
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	self.window.backgroundColor = [UIColor blackColor];
+	
+	UITabBarController *tabBarController = [UITabBarController new];
+	tabBarController.viewControllers = @[navCon1,navCon2,navCon3];
+	
+	self.window.rootViewController = tabBarController;
+	
+	[self.window makeKeyAndVisible];
+	
+	
 	return YES;
 }
 
