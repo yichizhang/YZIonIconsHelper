@@ -13,10 +13,12 @@
  */
 
 #import "YZIonIconsHelper.h"
+#import <ionicons/IonIcons.h>
 
-NSString *const kYZDefaultIcon = @"kYZDefaultIcon";
-NSString *const kYZIconColor = @"kYZIconColor";
-NSString *const kYZIconSize = @"kYZIconSize";
+NSString *const yz_default_icon_settings = @"yz_default_icon_settings";
+NSString *const yz_icon_normal_color = @"yz_icon_normal_color";
+NSString *const yz_icon_selected_color = @"yz_icon_selected_color";
+NSString *const yz_icon_size = @"yz_icon_size";
 
 @interface YZIonIconsHelper ()
 
@@ -24,11 +26,150 @@ NSString *const kYZIconSize = @"kYZIconSize";
 
 @implementation YZIonIconsHelper
 
-- (UIImage*)imageOptimizedFor:(class)class{
+#pragma mark - Private Methods
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+		[self setUp];
+    }
+    return self;
+}
+
+- (void)setUp{
 	
-	if () {
+	self.settings = [NSMutableDictionary dictionary];
+	
+	[self.settings setObject:[@{
+								yz_icon_size: @(100),
+								yz_icon_normal_color: [UIColor darkGrayColor],
+								yz_icon_selected_color: [UIColor whiteColor]
+								} mutableCopy]
+					  forKey:yz_default_icon_settings
+	 ];
+	
+	[self.settings setObject:[@{
+								yz_icon_size: @(30),
+								} mutableCopy]
+					  forKey:[[self class] iconSettingsKeyForClass:[UITabBarItem class]]
+	 ];
+	
+	[self.settings setObject:[@{
+								yz_icon_size: @(20),
+								} mutableCopy]
+					  forKey:[[self class] iconSettingsKeyForClass:[UIBarButtonItem class]]
+	 ];
+}
+
+#pragma mark - Public Methods
+
++ (instancetype)sharedInstance
+{
+	static YZIonIconsHelper *sharedInstance = nil;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+	
+		sharedInstance = [[YZIonIconsHelper alloc] init];
+	
+	});
+	return sharedInstance;
+}
+
++ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass{
+	
+	return
+	[[YZIonIconsHelper sharedInstance]
+	 ionIcon:iconName
+	 optimizedFor:aClass
+	 ];
+	
+}
+
++ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey{
+	
+	return
+	[[YZIonIconsHelper sharedInstance]
+	 ionIcon:iconName
+	 optimizedFor:aClass
+	 colorKey:colorKey
+	 ];
+	
+}
+
++ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
+	
+	return
+	[[YZIonIconsHelper sharedInstance]
+	 ionIcon:iconName
+	 optimizedFor:aClass
+	 color:color
+	 size:size
+	 ];
+	
+}
+
+- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass{
+	
+	return [self ionIcon:iconName optimizedFor:aClass colorKey:yz_icon_normal_color];
+	
+}
+
+- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey{
+	
+	UIColor *color;
+	NSNumber *size;
+	
+	color = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]]
+			 objectForKey:colorKey];
+	
+	if (!color) {
+		
+		color = [[self.settings objectForKey:yz_default_icon_settings]
+				 objectForKey:colorKey];
+		
+		if (!color) {
+			
+			color = [[self.settings objectForKey:yz_default_icon_settings]
+					 objectForKey:yz_icon_normal_color];
+			
+			if (!color) {
+				color = [UIColor redColor];
+			}
+			
+		}
 		
 	}
+	
+	size = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]] objectForKey:yz_icon_size];
+	
+	if (!size) {
+		
+		size = [[self.settings objectForKey:yz_default_icon_settings] objectForKey:yz_icon_size];
+		
+		if (!size) {
+			size = @(100);
+		}
+		
+	}
+	
+	return [self ionIcon:iconName optimizedFor:aClass color:color size:size];
+	
+}
+
+- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
+	
+	UIImage *image;
+	
+	image = [IonIcons imageWithIcon:iconName size:[size floatValue] color:color];
+
+	return image;
+	
+}
+
++ (NSString*)iconSettingsKeyForClass:(Class)aClass{
+	
+	return NSStringFromClass(aClass);
 	
 }
 

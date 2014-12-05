@@ -12,28 +12,7 @@
  
  */
 
-@import Foundation;
-@import UIKit;
-
-FOUNDATION_EXPORT NSString *const yz_default_icon_settings;
-FOUNDATION_EXPORT NSString *const yz_icon_normal_color;
-FOUNDATION_EXPORT NSString *const yz_icon_selected_color;
-FOUNDATION_EXPORT NSString *const yz_icon_size;
-
-@interface YZIonIconsHelper : NSObject
-
-@property (nonatomic, strong) NSMutableDictionary *settings;
-
-+ (instancetype)sharedInstance;
-
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
-
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
-
-+ (NSString*)iconSettingsKeyForClass:(Class)aClass;
-
-@end
+#import <ionicons/ionicons-codes.h>
+#import "YZIonIconsHelper.h"
+#import "UITabBarItem+YZIonIconsHelper.h"
+#import "UIBarButtonItem+YZIonIconsHelper.h"
