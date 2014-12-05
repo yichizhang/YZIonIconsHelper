@@ -1,4 +1,4 @@
 YZIonIconsHelper
 ================
 
-A few category methods added to IonIcons (pod name: 'ionicons')
+A class to help make working with IonIcons easier (pod name: 'ionicons')
