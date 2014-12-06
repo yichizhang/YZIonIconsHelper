@@ -96,7 +96,7 @@ If you've never used CocoaPods, [check out their page](http://cocoapods.org/):
 
 ###Step 2
 
-You can either follow this link [Step 2 on sweetmandm/ionicons-iOS](https://github.com/sweetmandm/ionicons-iOS) or continue on to follow my instructions (which is copied from https://github.com/sweetmandm/ionicons-iOS anyway)
+You can either follow Step 2 on [sweetmandm/ionicons-iOS](https://github.com/sweetmandm/ionicons-iOS) or continue on to follow my instructions (which is copied from sweetmandm/ionicons-iOS anyway)
 
 Modify your project's Info.plist file:
 
