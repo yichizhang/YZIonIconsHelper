@@ -3,6 +3,79 @@ YZIonIconsHelper
 
 A few classes and categories to help make working with Ion Icons easier (sweetmandm/ionicons-iOS, pod name: 'ionicons'). You don't have to configure size and color on an ad hoc basis anymore; just configure the colors and sizes for each UI element in the settings dictionary on the singleton object of YZIonIconsHelper, then create new UIElements with the additional factory methods.
 
+This is how I used to use 'ionicons':
+
+```
+// View Controller 1
+CGFloat size = 22.0;
+CGColor color = [UIColor darkGrayColor];
+
+self.navigationItem.leftBarButtonItem =
+	[[UIBarButtonItem alloc]
+	 initWithImage:[IonIcons imageWithIcon:icon_navicon
+									  size:size
+									 color:color
+					]
+	 style:UIBarButtonItemStylePlain
+	 target:self
+	 action:someSelector
+	 ];
+// View Controller 2
+CGFloat size = 22.0;
+CGColor color = [UIColor darkGrayColor];
+
+self.navigationItem.leftBarButtonItem =
+	[[UIBarButtonItem alloc]
+	 initWithImage:[IonIcons imageWithIcon:icon_navicon
+									  size:size
+									 color:color
+					]
+	 style:UIBarButtonItemStylePlain
+	 target:self
+	 action:someSelector
+	 ];
+```
+
+I don't want to repeat the configurations any more.
+
+With YZIonIconsHelper, configure once,
+
+```
+[YZIonIconsHelper changeSettingsFor:[UIBarButtonItem class]
+								key:yz_icon_normal_color
+							  value:[UIColor darkGrayColor]
+ ];
+[YZIonIconsHelper changeSettingsFor:[UIBarButtonItem class]
+								key:yz_icon_size
+							  value:@(22)
+ ];
+
+```
+
+Then:
+
+```
+// View Controller 1
+self.navigationItem.leftBarButtonItem = 
+	[UIBarButtonItem yz_barButtonItemWithIonIcon:icon_navicon
+										  target:nil
+										  action:nil
+	 ];
+
+// View Controller 2
+self.navigationItem.leftBarButtonItem = 
+	[UIBarButtonItem yz_barButtonItemWithIonIcon:icon_navicon
+										  target:nil
+										  action:nil
+	 ];
+```
+
+No more
+
+~~`CGFloat size = 22.0;`~~
+~~`CGColor color = [UIColor darkGrayColor];`~~
+
+
 ##How to use?
 
 It is recommended that you use cocoapods to add YZIonIconsHelper.
