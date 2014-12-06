@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	
-	[YZIonIconsHelper changeSettingFor:[UITabBarItem class] key:yz_icon_selected_color value:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+	[YZIonIconsHelper changeSettingsFor:[UITabBarItem class] key:yz_icon_selected_color value:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
 	
 	ViewController *vc1 = [ViewController new];
 	ViewController *vc2 = [ViewController new];
