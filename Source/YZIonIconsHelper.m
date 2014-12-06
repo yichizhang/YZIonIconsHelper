@@ -49,8 +49,8 @@ NSString *const yz_icon_size = @"yz_icon_size";
 					  forKey:yz_default_icon_settings
 	 ];
 	
-	[self changeSettingsFor:[UITabBarItem class] key:yz_icon_size value:@(30)];
-	[self changeSettingsFor:[UIBarButtonItem class] key:yz_icon_size value:@(20)];
+	[self changeSettingsForClass:[UITabBarItem class] key:yz_icon_size value:@(30)];
+	[self changeSettingsForClass:[UIBarButtonItem class] key:yz_icon_size value:@(20)];
 	
 }
 
@@ -109,10 +109,10 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	
 }
 
-+ (void)changeSettingsFor:(Class)aClass key:(NSString*)key value:(id)value{
++ (void)changeSettingsForClass:(Class)aClass key:(NSString*)key value:(id)value{
 	
 	[[YZIonIconsHelper sharedInstance]
-	 changeSettingsFor:aClass
+	 changeSettingsForClass:aClass
 	 key:key
 	 value:value
 	 ];
@@ -179,7 +179,7 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	
 }
 
-- (void)changeSettingsFor:(Class)aClass key:(NSString*)key value:(id)value{
+- (void)changeSettingsForClass:(Class)aClass key:(NSString*)key value:(id)value{
 	
 	if ( !( (aClass && key) && value) ) {
 		return;
