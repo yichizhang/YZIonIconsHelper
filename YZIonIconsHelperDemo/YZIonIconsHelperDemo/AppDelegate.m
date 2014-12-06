@@ -21,33 +21,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	
+	[YZIonIconsHelper changeSettingFor:[UITabBarItem class] key:yz_icon_selected_color value:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
+	
 	ViewController *vc1 = [ViewController new];
 	ViewController *vc2 = [ViewController new];
 	ViewController *vc3 = [ViewController new];
 	
-	vc1.tabBarItem =
-	[UITabBarItem
-	 yz_tabBarItemWithTitle:@"A"
-	 ionIcon:icon_ios7_box
-	 ];
-	vc1.navigationItem.leftBarButtonItem =
-	[UIBarButtonItem
-	 yz_barButtonItemWithIonIcon:icon_ios7_gear
-	 target:nil
-	 action:nil
-	 ];
+	vc1.title = @"VC 1";
+	vc1.tabBarItem = [UITabBarItem yz_tabBarItemWithTitle:vc1.title ionIcon:icon_clock];
+	vc1.navigationItem.leftBarButtonItem = [UIBarButtonItem yz_barButtonItemWithIonIcon:icon_navicon target:nil action:nil];
 	
-	vc2.tabBarItem =
-	[UITabBarItem
-	 yz_tabBarItemWithTitle:@"B"
-	 ionIcon:icon_ios7_cog
-	 ];
+	vc2.title = @"VC 2";
+	vc2.tabBarItem = [UITabBarItem yz_tabBarItemWithTitle:vc2.title ionIcon:icon_music_note];
+	vc2.navigationItem.leftBarButtonItem = [UIBarButtonItem yz_barButtonItemWithIonIcon:icon_more target:nil action:nil];
 	
-	vc3.tabBarItem =
-	[UITabBarItem
-	 yz_tabBarItemWithTitle:@"C"
-	 ionIcon:icon_ios7_mic
-	 ];
+	vc3.title = @"VC 3";
+	vc3.tabBarItem = [UITabBarItem yz_tabBarItemWithTitle:vc3.title ionIcon:icon_wrench];
+	vc3.navigationItem.leftBarButtonItem = [UIBarButtonItem yz_barButtonItemWithIonIcon:icon_grid target:nil action:nil];
 	
 	UINavigationController *navCon1 = [[UINavigationController alloc] initWithRootViewController:vc1];
 	UINavigationController *navCon2 = [[UINavigationController alloc] initWithRootViewController:vc2];
