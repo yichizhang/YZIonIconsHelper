@@ -115,7 +115,9 @@ You are ready to go.
 ##How to prepare the Demo Project?
 
 You have to use `cocoapods` to prepare the Demo Project.
+
 Since `Pods` are ignored, you have to run `pod install` in the demo project directory.
+
 Then open the `xcworkspace` file.
 
 

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Source/*.{h,m}'
   #s.resources    = 'RES.bundle'
 
-  s.dependency = 'ionicons'
+  s.dependency 'ionicons'
   s.framework  = 'Foundation', 'UIKit'
 
 end
