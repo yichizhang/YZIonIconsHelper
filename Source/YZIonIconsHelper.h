@@ -26,14 +26,14 @@ FOUNDATION_EXPORT NSString *const yz_icon_size;
 
 + (instancetype)sharedInstance;
 
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass;
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey;
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
 + (void)changeSettingsFor:(Class)aClass key:(NSString*)key value:(id)value;
 
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass;
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey;
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
 - (void)changeSettingsFor:(Class)aClass key:(NSString*)key value:(id)value;
 
 @end

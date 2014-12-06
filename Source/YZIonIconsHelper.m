@@ -76,33 +76,33 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	return sharedInstance;
 }
 
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass{
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass{
 	
 	return
 	[[YZIonIconsHelper sharedInstance]
 	 ionIcon:iconName
-	 optimizedFor:aClass
+	 optimizedForClass:aClass
 	 ];
 	
 }
 
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey{
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey{
 	
 	return
 	[[YZIonIconsHelper sharedInstance]
 	 ionIcon:iconName
-	 optimizedFor:aClass
+	 optimizedForClass:aClass
 	 colorKey:colorKey
 	 ];
 	
 }
 
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
++ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
 	
 	return
 	[[YZIonIconsHelper sharedInstance]
 	 ionIcon:iconName
-	 optimizedFor:aClass
+	 optimizedForClass:aClass
 	 color:color
 	 size:size
 	 ];
@@ -121,13 +121,13 @@ NSString *const yz_icon_size = @"yz_icon_size";
 
 #pragma mark - Public Methods (Instance Methods)
 
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass{
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass{
 	
-	return [self ionIcon:iconName optimizedFor:aClass colorKey:yz_icon_normal_color];
+	return [self ionIcon:iconName optimizedForClass:aClass colorKey:yz_icon_normal_color];
 	
 }
 
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey{
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey{
 	
 	UIColor *color;
 	NSNumber *size;
@@ -165,11 +165,11 @@ NSString *const yz_icon_size = @"yz_icon_size";
 		
 	}
 	
-	return [self ionIcon:iconName optimizedFor:aClass color:color size:size];
+	return [self ionIcon:iconName optimizedForClass:aClass color:color size:size];
 	
 }
 
-- (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
 	
 	UIImage *image;
 	
