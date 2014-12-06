@@ -38,6 +38,11 @@ self.navigationItem.leftBarButtonItem =
 
 I don't want to repeat the configurations any more.
 
+```
+CGFloat size = 22.0;
+CGColor color = [UIColor darkGrayColor];
+```
+
 With YZIonIconsHelper, configure once,
 
 ```
@@ -72,8 +77,10 @@ self.navigationItem.leftBarButtonItem =
 
 No more
 
-~~`CGFloat size = 22.0;`~~
-~~`CGColor color = [UIColor darkGrayColor];`~~
+~~```
+CGFloat size = 22.0;
+CGColor color = [UIColor darkGrayColor];
+```~~
 
 
 ##How to use?
