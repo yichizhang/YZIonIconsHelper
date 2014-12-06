@@ -77,12 +77,9 @@ self.navigationItem.leftBarButtonItem =
 
 No more
 
-~~
-```
-CGFloat size = 22.0;
-CGColor color = [UIColor darkGrayColor];
-```
-~~
+~~`CGFloat size = 22.0;`~~
+
+~~`CGColor color = [UIColor darkGrayColor];`~~
 
 
 ##How to use?
