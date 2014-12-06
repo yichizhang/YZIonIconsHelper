@@ -26,7 +26,7 @@ NSString *const yz_icon_size = @"yz_icon_size";
 
 @implementation YZIonIconsHelper
 
-#pragma mark - Private Methods
+#pragma mark - Private Methods (Set Up)
 
 - (instancetype)init
 {
@@ -49,20 +49,20 @@ NSString *const yz_icon_size = @"yz_icon_size";
 					  forKey:yz_default_icon_settings
 	 ];
 	
-	[self.settings setObject:[@{
-								yz_icon_size: @(30),
-								} mutableCopy]
-					  forKey:[[self class] iconSettingsKeyForClass:[UITabBarItem class]]
-	 ];
+	[self changeSettingFor:[UITabBarItem class] key:yz_icon_size value:@(30)];
+	[self changeSettingFor:[UIBarButtonItem class] key:yz_icon_size value:@(20)];
 	
-	[self.settings setObject:[@{
-								yz_icon_size: @(20),
-								} mutableCopy]
-					  forKey:[[self class] iconSettingsKeyForClass:[UIBarButtonItem class]]
-	 ];
 }
 
-#pragma mark - Public Methods
+#pragma mark - Private Methods (Other)
+
++ (NSString*)iconSettingsKeyForClass:(Class)aClass{
+	
+	return NSStringFromClass(aClass);
+	
+}
+
+#pragma mark - Public Methods (Class Methods)
 
 + (instancetype)sharedInstance
 {
@@ -108,6 +108,18 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	 ];
 	
 }
+
++ (void)changeSettingFor:(Class)aClass key:(NSString*)key value:(id)value{
+	
+	[[YZIonIconsHelper sharedInstance]
+	 changeSettingFor:aClass
+	 key:key
+	 value:value
+	 ];
+	
+}
+
+#pragma mark - Public Methods (Instance Methods)
 
 - (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass{
 	
@@ -167,9 +179,28 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	
 }
 
-+ (NSString*)iconSettingsKeyForClass:(Class)aClass{
+- (void)changeSettingFor:(Class)aClass key:(NSString*)key value:(id)value{
 	
-	return NSStringFromClass(aClass);
+	if ( !( (aClass && key) && value) ) {
+		return;
+	}
+	
+	NSString *settingsKey = [YZIonIconsHelper iconSettingsKeyForClass:aClass];
+	
+	if (![self.settings objectForKey:settingsKey]) {
+		
+		[self.settings setObject:[@{
+									key: value,
+									} mutableCopy]
+						  forKey:settingsKey
+		 ];
+		
+	}else{
+		
+		NSMutableDictionary *settingsItemDict = [self.settings objectForKey:settingsKey];
+		[settingsItemDict addEntriesFromDictionary:@{key: value}];
+		
+	}
 	
 }
 

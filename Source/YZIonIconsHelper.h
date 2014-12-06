@@ -29,11 +29,11 @@ FOUNDATION_EXPORT NSString *const yz_icon_size;
 + (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
 + (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
 + (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
++ (void)changeSettingFor:(Class)aClass key:(NSString*)key value:(id)value;
 
 - (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass;
 - (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass colorKey:(NSString*)colorKey;
 - (UIImage*)ionIcon:(NSString*)iconName optimizedFor:(Class)aClass color:(UIColor*)color size:(NSNumber*)size;
-
-+ (NSString*)iconSettingsKeyForClass:(Class)aClass;
+- (void)changeSettingFor:(Class)aClass key:(NSString*)key value:(id)value;
 
 @end
