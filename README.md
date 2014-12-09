@@ -46,13 +46,13 @@ CGColor color = [UIColor darkGrayColor];
 With YZIonIconsHelper, configure once,
 
 ```
-[YZIonIconsHelper changeSettingsFor:[UIBarButtonItem class]
-								key:yz_icon_normal_color
-							  value:[UIColor darkGrayColor]
+[YZIonIconsHelper changeSettingsForClass:[UIBarButtonItem class]
+									 key:yz_icon_normal_color
+							  	   value:[UIColor darkGrayColor]
  ];
-[YZIonIconsHelper changeSettingsFor:[UIBarButtonItem class]
-								key:yz_icon_size
-							  value:@(22)
+[YZIonIconsHelper changeSettingsForClass:[UIBarButtonItem class]
+									 key:yz_icon_size
+							  	   value:@(22)
  ];
 
 ```
