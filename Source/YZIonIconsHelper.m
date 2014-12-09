@@ -62,98 +62,30 @@ NSString *const yz_icon_size = @"yz_icon_size";
 	
 }
 
-#pragma mark - Public Methods (Class Methods)
-
 + (instancetype)sharedInstance
 {
 	static YZIonIconsHelper *sharedInstance = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-	
+		
 		sharedInstance = [[YZIonIconsHelper alloc] init];
-	
+		
 	});
 	return sharedInstance;
 }
 
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass{
-	
-	return
-	[[YZIonIconsHelper sharedInstance]
-	 ionIcon:iconName
-	 optimizedForClass:aClass
-	 ];
-	
-}
-
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey{
-	
-	return
-	[[YZIonIconsHelper sharedInstance]
-	 ionIcon:iconName
-	 optimizedForClass:aClass
-	 colorKey:colorKey
-	 ];
-	
-}
-
-+ (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
-	
-	return
-	[[YZIonIconsHelper sharedInstance]
-	 ionIcon:iconName
-	 optimizedForClass:aClass
-	 color:color
-	 size:size
-	 ];
-	
-}
-
-+ (void)changeSettingsForClass:(Class)aClass key:(NSString*)key value:(id)value{
-	
-	[[YZIonIconsHelper sharedInstance]
-	 changeSettingsForClass:aClass
-	 key:key
-	 value:value
-	 ];
-	
-}
-
-#pragma mark - Public Methods (Instance Methods)
-
-- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass{
-	
-	return [self ionIcon:iconName optimizedForClass:aClass colorKey:yz_icon_normal_color];
-	
-}
-
-- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey{
-	
-	UIColor *color;
-	NSNumber *size;
-	
-	color = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]]
-			 objectForKey:colorKey];
+- (UIImage*)ionIcon:(NSString*)iconName optimizedForSettingsKey:(NSString*)settingsKey firstPreferenceColor:(UIColor*)color firstPreferenceSize:(NSNumber*)size{
 	
 	if (!color) {
 		
 		color = [[self.settings objectForKey:yz_default_icon_settings]
-				 objectForKey:colorKey];
+				 objectForKey:yz_icon_normal_color];
 		
 		if (!color) {
-			
-			color = [[self.settings objectForKey:yz_default_icon_settings]
-					 objectForKey:yz_icon_normal_color];
-			
-			if (!color) {
-				color = [UIColor redColor];
-			}
-			
+			color = [UIColor redColor];
 		}
 		
 	}
-	
-	size = [[self.settings objectForKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]] objectForKey:yz_icon_size];
 	
 	if (!size) {
 		
@@ -165,27 +97,31 @@ NSString *const yz_icon_size = @"yz_icon_size";
 		
 	}
 	
-	return [self ionIcon:iconName optimizedForClass:aClass color:color size:size];
-	
-}
-
-- (UIImage*)ionIcon:(NSString*)iconName optimizedForClass:(Class)aClass color:(UIColor*)color size:(NSNumber*)size{
-	
-	UIImage *image;
-	
-	image = [IonIcons imageWithIcon:iconName size:[size floatValue] color:color];
-
-	return image;
+	return [IonIcons imageWithIcon:iconName size:[size floatValue] color:color];
 	
 }
 
 - (void)changeSettingsForClass:(Class)aClass key:(NSString*)key value:(id)value{
 	
-	if ( !( (aClass && key) && value) ) {
+	[self
+	 changeSettingsForSettingsKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]
+	 key:key
+	 value:value
+	 ];
+	
+}
+
+- (void)changeSettingsForSettingsKey:(NSString*)settingsKey key:(NSString*)key value:(id)value{
+	
+	/*
+	 NSCAssert(key, @"The key can not be empty");
+	 NSCAssert(value, @"The key can not be empty");
+	 */
+	
+	if (!(settingsKey.length && key.length && value)) {
+		NSLog(@"You are trying to change the settings for some nil settingsKey/itemKey/itemValue");
 		return;
 	}
-	
-	NSString *settingsKey = [YZIonIconsHelper iconSettingsKeyForClass:aClass];
 	
 	if (![self.settings objectForKey:settingsKey]) {
 		
@@ -201,6 +137,73 @@ NSString *const yz_icon_size = @"yz_icon_size";
 		[settingsItemDict addEntriesFromDictionary:@{key: value}];
 		
 	}
+	
+}
+
+
+#pragma mark - Public Methods (Class Methods)
+
++ (UIImage*)ionIconImage:(NSString*)iconName optimizedForSettingsKey:(NSString*)settingsKey{
+
+	return
+	[YZIonIconsHelper
+	 ionIconImage:iconName
+	 optimizedForSettingsKey:settingsKey
+	 colorKey:yz_icon_normal_color
+	 ];
+	
+}
+
++ (UIImage*)ionIconImage:(NSString*)iconName optimizedForSettingsKey:(NSString*)settingsKey colorKey:(NSString*)colorKey{
+	
+	return
+	[[YZIonIconsHelper sharedInstance]
+	 ionIcon:iconName
+	 optimizedForSettingsKey:settingsKey
+	 firstPreferenceColor:[[[YZIonIconsHelper sharedInstance].settings objectForKey:settingsKey] objectForKey:colorKey]
+	 firstPreferenceSize:[[[YZIonIconsHelper sharedInstance].settings objectForKey:settingsKey] objectForKey:yz_icon_size]
+	 ];
+	
+}
+
++ (UIImage*)ionIconImage:(NSString*)iconName optimizedForClass:(Class)aClass{
+	
+	return
+	[YZIonIconsHelper
+	 ionIconImage:iconName
+	 optimizedForSettingsKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]
+	 ];
+	
+}
+
++ (UIImage*)ionIconImage:(NSString*)iconName optimizedForClass:(Class)aClass colorKey:(NSString*)colorKey{
+	
+	return 
+	[YZIonIconsHelper
+	 ionIconImage:iconName
+	 optimizedForSettingsKey:[YZIonIconsHelper iconSettingsKeyForClass:aClass]
+	 colorKey:colorKey
+	 ];
+	
+}
+
++ (void)changeSettingsForSettingsKey:(NSString*)settingsKey key:(NSString*)key value:(id)value{
+	
+	[[YZIonIconsHelper sharedInstance]
+	 changeSettingsForSettingsKey:settingsKey
+	 key:key
+	 value:value
+	 ];
+	
+}
+
++ (void)changeSettingsForClass:(Class)aClass key:(NSString*)key value:(id)value{
+	
+	[[YZIonIconsHelper sharedInstance]
+	 changeSettingsForClass:aClass
+	 key:key
+	 value:value
+	 ];
 	
 }
 
