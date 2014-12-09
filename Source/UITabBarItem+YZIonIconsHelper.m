@@ -16,8 +16,8 @@
 	UITabBarItem *item =
 	[[UITabBarItem alloc]
 	 initWithTitle:title
-	 image:[YZIonIconsHelper ionIcon:iconName optimizedForClass:[self class] colorKey:yz_icon_normal_color]
-	 selectedImage:[YZIonIconsHelper ionIcon:iconName optimizedForClass:[self class] colorKey:yz_icon_selected_color]
+	 image:[YZIonIconsHelper ionIconImage:iconName optimizedForClass:[self class] colorKey:yz_icon_normal_color]
+	 selectedImage:[YZIonIconsHelper ionIconImage:iconName optimizedForClass:[self class] colorKey:yz_icon_selected_color]
 	 ];
 	
 	return item;

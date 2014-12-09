@@ -21,7 +21,7 @@
 	
 	UIBarButtonItem *item =
 	[[UIBarButtonItem alloc]
-	 initWithImage:[YZIonIconsHelper ionIcon:iconName optimizedForClass:[UIBarButtonItem class]]
+	 initWithImage:[YZIonIconsHelper ionIconImage:iconName optimizedForClass:[UIBarButtonItem class]]
 	 style:style
 	 target:target
 	 action:selector
